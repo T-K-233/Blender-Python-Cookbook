@@ -1,6 +1,17 @@
-
-
 # General Cookbook
+
+## Template Script
+
+```python
+import bpy
+from mathutils import *
+
+C = bpy.context
+D = bpy.data
+
+# ...
+```
+
 
 ## Get an object from the current scene
 
