@@ -17,6 +17,8 @@ D = bpy.data
 
 ```python
 cube = D.objects["Cube"]
+
+armature = D.objects.get("Armature")
 ```
 
 Get currently selected object
@@ -31,6 +33,15 @@ cube = C.active_object
 cube.data.name = "armature"
 ```
 
+## Delete the object
+
+```python
+# select the object
+cube.select_set(True)
+
+# perform delete operation
+bpy.ops.object.delete()
+```
 
 ## Set Location of the object
 
@@ -135,17 +146,17 @@ bpy.context.view_layer.update()
 ```
 
 
-# Change Mode
+# Change the object interaction mode
 
 ```python
 # enter object mode (the default mode)
-bpy.ops.object.mode_set(mode="OBJECT", toggle=False)
+bpy.ops.object.mode_set(mode="OBJECT")
 
 # enter edit mode
-bpy.ops.object.mode_set(mode="EDIT", toggle=False)
+bpy.ops.object.mode_set(mode="EDIT")
 
 # enter pose mode
-bpy.ops.object.mode_set(mode="POSE", toggle=False)
+bpy.ops.object.mode_set(mode="POSE")
 ```
 
 
@@ -195,6 +206,20 @@ bpy.ops.object.mode_set(mode="OBJECT", toggle=False)
 
 
 
+## Change display type of armature
 
 
+```python
+armature.data.display_type
+```
+
+- `OCTAHEDRAL` Octahedral – Display bones as octahedral shape (default).
+- `STICK` Stick – Display bones as simple 2D lines with dots.
+- `BBONE` B-Bone – Display bones as boxes, showing subdivision and B-Splines.
+- `ENVELOPE` Envelope – Display bones as extruded spheres, showing deformation influence volume.
+- `WIRE` Wire – Display bones as thin wires, showing subdivision and B-Splines.
+
+```python
+armature.data.show_names
+```
 
