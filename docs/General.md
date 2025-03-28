@@ -223,3 +223,14 @@ armature.data.display_type
 armature.data.show_names
 ```
 
+## Loop Through Animation
+
+```python
+for frame in range(bpy.context.scene.frame_start, bpy.context.scene.frame_end):
+    bpy.context.scene.frame_set(frame)
+    bpy.context.view_layer.update()
+
+    # force UI update to update bone pose matrix
+    bpy.ops.wm.redraw_timer(type="DRAW_WIN_SWAP", iterations=1)
+```
+
